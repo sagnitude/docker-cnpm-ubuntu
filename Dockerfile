@@ -17,4 +17,5 @@ RUN apt-get autoremove --yes \
     && apt-get clean \
     && rm -Rf /var/lib/apt/lists/*
 
-CMD ["cnpmjs.org" "start --admins='sagnitude,ids,admin,shared' --scopes='@sagnitude,@ids,@admin,@shared'"]
+COPY ./start.sh /workspace/start.sh;
+RUN chmod 755 /workspace/start.sh

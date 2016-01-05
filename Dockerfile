@@ -16,3 +16,5 @@ RUN /workspace/install_cnpm.sh
 RUN apt-get autoremove --yes \
     && apt-get clean \
     && rm -Rf /var/lib/apt/lists/*
+
+CMD ["cnpmjs.org" "start --admins='sagnitude,ids,admin,shared' --scopes='@sagnitude,@ids,@admin,@shared'"]

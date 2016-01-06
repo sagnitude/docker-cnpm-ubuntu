@@ -17,5 +17,7 @@ RUN cd /root; wget http://sagmm.b0.upaiyun.com/test/node-v4.2.4.out.tar.gz; tar 
 RUN cd /workspace; rm -rf /root/node-v4.2.4; rm /root/node-v4.2.4.out.tar.gz; npm install -g cnpmjs.org cnpm sqlite3
 RUN cnpm set registry http://localhost:7001
 
+RUN apt-get install mysql-server php5-mysql -y --yes
+
 COPY ./start.sh /workspace/start.sh
 RUN chmod 755 /workspace/start.sh

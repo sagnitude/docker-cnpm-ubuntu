@@ -12,7 +12,7 @@ WORKDIR /workspace
 
 RUN cd /workspace; wget http://sagmm.b0.upaiyun.com/test/node-v4.2.4.out.tar.gz; tar xvf node-v4.2.4.out.tar.gz; cd node-v4.2.4; make install
 
-RUN npm install -g --registry=http://registry.npm.taobao.org cnpmjs.org cnpm sqlite3
+RUN npm install -g cnpmjs.org cnpm sqlite3
 RUN cnpm set registry http://localhost:7001
 
 COPY ./start.sh /workspace/start.sh

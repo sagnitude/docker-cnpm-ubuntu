@@ -7,10 +7,13 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN mkdir /workspace
 WORKDIR /workspace
-COPY ./install_cnpm.sh /workspace/install_cnpm.sh
-RUN chmod 755 /workspace/install_cnpm.sh; apt-get install -y python-software-properties python software-properties-common
-RUN add-apt-repository ppa:chris-lea/node.js; apt-get update && apt-get install -y --yes nodejs
-RUN /workspace/install_cnpm.sh
+
+# RUN cd /workspace; wget --no-check-certificate https://nodejs.org/dist/v4.2.4/node-v4.2.4.tar.gz; tar -zxvf node-v4.2.4.tar.gz; cd node-v4.2.4; ./configure; make -j4; make install
+
+RUN cd /workspace; wget http://sagmm.b0.upaiyun.com/test/node-v4.2.4.out.tar.gz; tar xvf node-v4.2.4.out.tar.gz; cd node-v4.2.4; make install
+
+RUN npm install -g --registry=http://registry.npm.taobao.org cnpmjs.org cnpm sqlite3
+RUN cnpm set registry http://localhost:7001
 
 COPY ./start.sh /workspace/start.sh
 RUN chmod 755 /workspace/start.sh

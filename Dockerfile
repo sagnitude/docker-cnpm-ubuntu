@@ -3,6 +3,8 @@ FROM sagnitude/ubuntu-essential
 
 MAINTAINER sagnitude <sag@sagnitude.com>
 
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN mkdir /workspace
 WORKDIR /workspace
 COPY ./install_cnpm.sh /workspace/install_cnpm.sh

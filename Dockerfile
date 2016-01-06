@@ -9,7 +9,7 @@ RUN mkdir /workspace
 WORKDIR /workspace
 COPY ./install_cnpm.sh /workspace/install_cnpm.sh
 RUN chmod 755 /workspace/install_cnpm.sh; curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
-RUN apt-get update && apt-get install -y --yes --no-install-recommends nodejs
+RUN apt-get update && apt-get install -y --yes --no-install-recommends nodejs npm
 RUN /workspace/install_cnpm.sh
 
 COPY ./start.sh /workspace/start.sh
